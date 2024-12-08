@@ -1,2 +1,6 @@
 /* Contains default css styles for charts  */
 
+.chart-container Canvas{
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
