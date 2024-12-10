@@ -19,8 +19,34 @@ export class Renderer {
     }
 
     // method for rectangle
-    drawRect(x1, y1, x2, y2, width=1, color="black") {}
-    drawCircle(x1, y1, x2, y2, r) {}
+    drawRect(x, y, width, height, color = "black", fill = false) {
+        this.ctx.beginPath();
+        if (fill) {
+            this.ctx.fillStyle = color;
+            this.ctx.fillRect(x, y, width, height);
+        } else {
+            this.ctx.strokeStyle = color;
+            this.ctx.strokeRect(x, y, width, height);
+        }
+    }
+
+    // Draw a circle
+    drawCircle(x, y, radius, color = "black", fill = false) {
+        this.ctx.beginPath();
+        this.ctx.arc(x, y, radius, 0, 2 * Math.PI);
+        if (fill) {
+            this.ctx.fillStyle = color;
+            this.ctx.fill();
+        } else {
+            this.ctx.strokeStyle = color;
+            this.ctx.stroke();
+        }
+    }
+    drawText(text, x, y, font = "16px Arial", color = "black") {
+        this.ctx.font = font;
+        this.ctx.fillStyle = color;
+        this.ctx.fillText(text, x, y);
+    }
     clearCanvas(width, height) {
         this.ctx.clearRect(0, 0, width, height);
     }
