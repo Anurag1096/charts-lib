@@ -6,6 +6,8 @@ export class LineChart extends ChartManager {
 
 
     render() {
+        // Line Rendering process
+
         const {dataSet , labels } = this.options.data;
         dataSet.forEach((data) => {
             return this.renderer.drawLine(/* add logic */)

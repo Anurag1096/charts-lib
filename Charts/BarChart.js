@@ -7,14 +7,8 @@ import {Tooltip} from "../Components/Tooltip";
 import {Legend} from "../Components/Legend";
 export class BarChart extends ChartManager {
     render() {
-        // Now first we start by clearing the canvas
-        // The renderer class in init by a context in base class
-        this.renderer.clearCanvas(this.canvas.width, this.canvas.height);
-        // With this we pass the necessary data to the gridlines to draw
-        GridLines.draw(this.renderer,this.canvas,this.options);
-        // Creating Axis lines in the given context
-        Axis.draw(this.renderer,this.canvas,this.options);
-        Title.render(this.ctx,this.options.title,this.options);
+
+
         // Bar rendering process
         const {dataSet , labels } = this.options.data;
         const barWidth = this.calculateBarWidth(labels.length);
@@ -36,8 +30,7 @@ export class BarChart extends ChartManager {
             });
         });
 
-        // 4. Render Legends (optional)
-        Legend.render(this.renderer,this.canvas,this.options);
+
 
     }
 
